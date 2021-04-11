@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "mssqlOptions": {
+                "appName": "SQLTools",
+                "useUTC": true,
+                "encrypt": true
+            },
+            "previewLimit": 50,
+            "server": "FRANCOPC\\SQLEXPRESS",
+            "port": 1433,
+            "askForPassword": true,
+            "driver": "MSSQL",
+            "name": "SQLEXPRESS",
+            "database": "Roster Global",
+            "username": "franco"
+        }
+    ]
+}
