@@ -86,7 +86,7 @@ namespace Persistence
                     City = "London",
                     Venue = "Roundhouse Camden",
                 },
-                new Activity
+                new Activity 
                 {
                     title = "Future Activity 7",
                     Date = DateTime.Now.AddMonths(7),
