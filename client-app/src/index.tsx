@@ -9,6 +9,7 @@ import { Router } from 'react-router-dom';
 import 'react-calendar/dist/Calendar.css'
 import './app/layout/style.css';
 import {createBrowserHistory} from 'history'
+import 'react-datepicker/dist/react-datepicker.css'
 
 export const history = createBrowserHistory()
 
