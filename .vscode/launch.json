@@ -1,6 +1,14 @@
 {
     "version": "0.2.0",
     "configurations": [
+
+    {
+        "name": "Launch Edge",
+        "request": "launch",
+        "type": "pwa-msedge",
+        "url": "http://localhost:8080",
+        "webRoot": "${workspaceFolder}"
+    },
           {
             "name": "Chrome",
             "type": "chrome",
@@ -13,7 +21,7 @@
             // Use hover for the description of the existing attributes
             // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
             "name": ".NET Core Launch (web)",
-            "type": "coreclr",
+            "type": "pwa-msedge",
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
