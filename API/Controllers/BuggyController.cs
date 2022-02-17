@@ -20,7 +20,7 @@ namespace API.Controllers
         }
 
         [HttpGet("server-error")]
-        public ActionResult GetServerError()
+        public static ActionResult GetServerError()
         {
             throw new Exception("This is a server error");
         }
