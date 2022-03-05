@@ -5,7 +5,6 @@ import agent from "../api/agent";
 import { Activity } from "../models/activity";
 import { Profile } from "../models/profile";
 import { store } from "./store";
-import UserStore from "./userStore";
 
 export default class ActivityStore {
     activityRegistry = new Map<string, Activity>();
