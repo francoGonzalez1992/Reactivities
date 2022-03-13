@@ -1,4 +1,5 @@
 import { makeAutoObservable, runInAction } from "mobx";
+import { threadId } from "worker_threads";
 import agent from "../api/agent";
 import { Photo, Profile } from "../models/profile";
 import { store } from "./store";
@@ -96,4 +97,22 @@ export default class ProfileStore {
             runInAction(() => this.loading = false)
         }
     }
+
+    updateProfile = async (name: string, bio: string) => {
+        this.loading = true;
+        try {
+            await agent.Account.updateAccount(name, bio);
+            runInAction(() => {
+                this.profile!.displayName = name;
+                store.userStore.user!.displayName = name;
+                this.loading = false;
+            }
+            )
+        }
+        catch (error) {
+            runInAction(() => this.loading = false)
+            console.log(error)
+        }
+    }
+
 }

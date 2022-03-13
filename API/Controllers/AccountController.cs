@@ -3,7 +3,9 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using API.DTOs;
 using API.Services;
+using Application.Account;
 using Domain;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -14,7 +16,7 @@ namespace API.Controllers
     [AllowAnonymous]
     [ApiController]
     [Route("api/[controller]")]
-    public class AccountController : ControllerBase
+    public class AccountController : BaseAPIController
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
@@ -98,6 +100,13 @@ namespace API.Controllers
             return CreateUserObject(user);
         }
 
+        [Authorize]
+        [HttpPut]
+        public async Task<ActionResult<Unit>> UpdateAccount(UpdateAccount.Command command)
+        {
+            return HandleResult(await Mediator.Send(command));
+        }
+
         private UserDto CreateUserObject(AppUser user)
         {
             return new UserDto
@@ -105,7 +114,8 @@ namespace API.Controllers
                 DisplayName = user.DisplayName,
                 Image = user?.Photos?.FirstOrDefault(x => x.IsMain)?.Url,
                 Token = _tokenService.CreateToken(user),
-                Username = user.UserName
+                Username = user.UserName,
+                Bio = user.Bio,
             };
         }
     }

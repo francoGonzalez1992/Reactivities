@@ -78,7 +78,8 @@ const Activities = {
 const Account = {
     current: () => request.get<User>('/account'),
     login: (user: UserFormValues) => request.post<User>('/account/login', user),
-    register: (user: UserFormValues) => request.post<User>('/account/register', user)
+    register: (user: UserFormValues) => request.post<User>('/account/register', user),
+    updateAccount: (displayName:string, bio:string) => request.put<void>("/account",{displayName,bio})
 }
 
 const Profiles = {
@@ -91,7 +92,7 @@ const Profiles = {
         });
     },
     setMainPhoto: (id:string) => request.post(`/photos/${id}/setMain`,{}),
-    deletePhoto: (id:string) => request.delete(`/photos/${id}`)
+    deletePhoto: (id:string) => request.delete(`/photos/${id}`),
 }
 
 const agent ={

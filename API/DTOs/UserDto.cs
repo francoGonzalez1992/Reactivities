@@ -10,5 +10,7 @@ namespace API.DTOs
 
         public string Image {get; set;}
 
+        public string Bio {get; set; }
+
     }
 }

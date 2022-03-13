@@ -13,6 +13,7 @@ export class Profile implements Profile{
         this.username = user.username
         this.displayName = user.displayName
         this.image = user.image
+        this.bio = user.bio;
     }
 } 
 
